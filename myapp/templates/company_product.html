@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>List of {{title}}</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Ram</th>
+            <th>Memory</th>
+            <th>Price</th>
+            <th>IMG</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.color}}</td>
+            <td>{{product.RAM}}</td>
+            <td>{{product.memory}}</td>
+            <td>{{product.price}}</td>
+            <td><img src="{{product.img_url}}" height=150px ></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

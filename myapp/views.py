@@ -1,5 +1,6 @@
 from itertools import product
 from django.shortcuts import render
+from multiprocessing import context
 from .models import Product
 from django.http import JsonResponse, HttpResponse
 # from django.http import HttpResponse
@@ -73,3 +74,19 @@ def get_all_company(request):
         'title': 'Companies'
     }
     return render(request, 'home.html', context)
+
+def get_company_by_name(request, company):
+    """
+    Get products by company
+    args:
+        request: the request object
+        company: the company name
+    return:
+        JsonResponse: the list of products
+    """
+    products = Product.objects.filter(company=company)
+    context = {
+        'products':products,
+        'title':company
+    }
+    return render(request, 'company_product.html',context)
