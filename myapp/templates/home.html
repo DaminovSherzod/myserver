@@ -1,12 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>My App and My Server</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
 </head>
 
 <body>
-    <h1>My App and Server</h1>
-    <p>My App is Django.</p>
+    <ul>
+    {% for company in companies %}
+        <li><a href="localhost:8000/company/{{company}}">{{company}}</a></li>
+    {% endfor %}
+    </ul>
 </body>
 
 </html>

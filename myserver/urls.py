@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path
-from myapp.views import home, add_product
+from myapp.views import home, add_product, get_all_company
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/',home ),
-    path('add_product/',add_product)
+    path('add_product/',add_product),
+    path('company/', get_all_company)
 
 ]

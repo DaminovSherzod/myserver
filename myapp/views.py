@@ -55,3 +55,21 @@ def add_product(request):
         return JsonResponse({'product' : product_json})
 
     return JsonResponse({'product': {}})
+
+def get_all_company(request):
+    """
+    Get all companies
+    args:
+        request: the request object
+    return:
+        JsonResponse: the list of companies
+    """
+    companies = Product.objects.all()
+    # Get unique companies
+    companies = set([company.company for company in companies])
+
+    context = {
+        'companies': companies,
+        'title': 'Companies'
+    }
+    return render(request, 'home.html', context)
